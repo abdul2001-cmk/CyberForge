@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  cyberforge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add a reverse proxy
+  nginx-proxy:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx-proxy.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - cyberforge
+    restart: unless-stopped
+    profiles:
+      - proxy
+
+networks:
+  default:
+    name: cyberforge-network
