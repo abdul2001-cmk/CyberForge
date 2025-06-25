@@ -1,27 +1,18 @@
 {
-  "name": "cyberforge",
+  "name": "modern-ecommerce",
   "private": true,
   "version": "1.0.0",
-  "description": "Comprehensive Cybersecurity Platform",
+  "description": "Modern E-commerce Platform",
   "type": "module",
   "keywords": [
-    "cybersecurity",
-    "security",
-    "penetration-testing",
-    "vulnerability-assessment",
-    "network-scanner",
-    "threat-intelligence"
+    "ecommerce",
+    "online-store",
+    "shopping",
+    "retail",
+    "marketplace"
   ],
-  "author": "CyberForge Team",
+  "author": "E-commerce Team",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yourusername/cyberforge.git"
-  },
-  "bugs": {
-    "url": "https://github.com/yourusername/cyberforge/issues"
-  },
-  "homepage": "https://github.com/yourusername/cyberforge#readme",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
